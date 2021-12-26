@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "email": "canberkkoc@gmail.com",
+      "userName": "21321312",
+      "password": "3333",
+      "id": 1
+    },
+    {
+      "email": "canberkkoc@gmail.com",
+      "userName": "oprax",
+      "password": "123213123",
+      "id": 2
+    },
+    {
+      "email": "canberkkoc333@gmail.com",
+      "userName": "oprax1",
+      "password": "123213213",
+      "id": 3
+    },
+    {
+      "email": "canberkkoc12@gmail.com",
+      "userName": "canberk1",
+      "password": "123",
+      "id": 4
+    }
+  ]
+}
