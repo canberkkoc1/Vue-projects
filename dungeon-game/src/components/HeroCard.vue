@@ -4,7 +4,7 @@
             <img src="../assets/hero.png" alt="" width="200">
         </div>
         <div class="charInfo">
-        <CharInfo/>
+        <CharInfo />
 
         </div>
         <div class="action">
@@ -17,12 +17,24 @@
 <script>
 import CharInfo from '@/components/CharInfo'
 import Action from '@/components/Action'
+
 export default {
 
     components:{
         CharInfo,
         Action,
-    }
+    },
+
+    data() {
+        return {
+            hero:{},
+            enemy:{}      
+        }
+    },
+
+
+
+    
 
 }
 </script>

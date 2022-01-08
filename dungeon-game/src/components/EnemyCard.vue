@@ -4,7 +4,7 @@
             <img src="../assets/enemy.jpg" alt="" width="200">
         </div>
         <div class="charInfo-e">
-        <CharInfo/>
+        <EnmyInfo/>
 
         </div>
         
@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import CharInfo from '@/components/CharInfo'
+import EnmyInfo from '@/components/EnmyInfo'
 export default {
 
     components:{
-        CharInfo
+        EnmyInfo
     }
 }
 </script>

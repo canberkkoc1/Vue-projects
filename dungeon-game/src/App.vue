@@ -19,9 +19,15 @@ export default {
   components:{
     HeroCard,
     EnemyCard
-  }
+  },
+
+  mounted() {
+    
+    
+  },
 
 }
+
 </script>
 
 <style>

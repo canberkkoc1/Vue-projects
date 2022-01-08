@@ -1,10 +1,10 @@
 <template>
     
         <div class="actions">
-            <button   @click="alertButton"  class="btn circle war">⚔</button>
-            <button   @click="alertButton"  class="btn circle manas">💙</button>
-            <button   @click="alertButton"  class="btn circle heal">💊</button>
-            <button   @click="alertButton"  class="btn circle flag">🏳</button>
+            <button   @click="attackEnemy"  class="btn circle war">⚔</button>
+            <button   @click="getMana"  class="btn circle manas">💙</button>
+            <button   @click="getHealth"  class="btn circle heal">💊</button>
+            <button   @click="attackEnemy"  class="btn circle flag">🏳</button>
            
         </div> 
     
@@ -15,13 +15,88 @@ export default {
 
     data() {
         return {
+            enemyInfo:this.$store.getters.getEnemy,
+            heroInfo:this.$store.getters.getHero,
             
         }
     },
 
+    computed:{
+       
+    },
+
     methods: {
-        alertButton(){
-            alert()
+        attackEnemy(){
+            if(this.enemyInfo.health > 0 && this.heroInfo.mana > 0){
+
+                let damage = this.heroInfo.damage;
+                let enemyHealth = this.enemyInfo.health;
+                
+
+                 
+                    let heroMana = this.heroInfo.mana - 20
+                alert(heroMana)
+                if(heroMana == 0 ){
+                    alert("mana is finish")
+                    
+
+                }
+                //* enemy mana                
+                let enemyMana = this.enemyInfo.mana -15
+                
+                this.$store.dispatch('EnemyMana',enemyMana)
+
+                alert(`enemy mana  = ${enemyMana}`)
+                //*
+                this.$store.dispatch('heroMana',heroMana)
+
+                if(enemyMana == 0){
+                    enemyMana += 30
+                    this.$store.dispatch('EnemyMana',enemyMana)
+
+                }
+
+
+
+                let damageEnemy = this.enemyInfo.damage;
+                let heroHealth = this.heroInfo.health
+    
+                let newHeroHealth = heroHealth - damageEnemy;
+    
+                this.$store.dispatch('HeroAttack',newHeroHealth)
+    
+                let newEnemyHealth = enemyHealth - damage
+    
+                this.$store.dispatch('enemyAttack',newEnemyHealth)
+            }
+            else if(this.enemyInfo.health < 0){
+                alert(this.enemyInfo.health)
+                location.reload()
+            }
+
+            
+        },
+
+        getMana(){
+            let heroMana = this.heroInfo.mana;
+
+            heroMana +=20
+            this.$store.dispatch('heroMana',heroMana)
+
+        },
+
+        getHealth(){
+            if(this.heroInfo.health < 100){
+                let heroHealth = this.heroInfo.health;
+    
+                heroHealth +=  15;
+    
+                this.$store.dispatch("HeroAttack",heroHealth)
+
+            }
+            
+
+
         }
     },
 
