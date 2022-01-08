@@ -3,7 +3,7 @@
         <div class="actions">
             <button   @click="attackEnemy"  class="btn circle war">⚔</button>
             <button   @click="getMana"  class="btn circle manas">💙</button>
-            <button   @click="getHealth"  class="btn circle heal">💊</button>
+            <button   @click="getHealth"  class="btn circle heal">🩸</button>
             <button   @click="attackEnemy"  class="btn circle flag">🏳</button>
            
         </div> 
@@ -78,10 +78,13 @@ export default {
         },
 
         getMana(){
-            let heroMana = this.heroInfo.mana;
+            if(this.heroInfo.mana<100){
+                let heroMana = this.heroInfo.mana;
+    
+                heroMana +=20
+                this.$store.dispatch('heroMana',heroMana)
 
-            heroMana +=20
-            this.$store.dispatch('heroMana',heroMana)
+            }
 
         },
 
