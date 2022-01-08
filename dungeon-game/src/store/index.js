@@ -31,10 +31,30 @@ export default createStore({
     },
   },
   actions: {
+    enemyAttack({commit},damage){
+      commit('changeEnemyHealth',damage)
+    },
+    HeroAttack({commit},damage){
+      commit('changeHeroHealth',damage)
+      
+    },
+    heroMana({commit},mana){
+      commit('changeHeroMana',mana)
+    },
+    EnemyMana({commit},mana){
+      commit('changeEnemyMana',mana)
+    },
+    
   },
 
   getters:{
-    
+    getHero(state){
+      return state.hero
+    },
+
+    getEnemy(state){
+      return state.enemy
+    }
   },
 
   modules: {
