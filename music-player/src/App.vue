@@ -1,7 +1,12 @@
 <template>
-  <div>
+  <div class="app">
+    <div class="inputClass">
       <Input/>
-      <Card/>
+
+    </div>
+      <div class="cardClass">
+        <Card/>
+      </div>
   </div>  
 </template>
 
@@ -20,5 +25,19 @@ export default {
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app{
+  padding: 20px 20px;
 
+}
+
+.inputClass{
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 30px; 
+}
 </style>
